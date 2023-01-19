@@ -1,0 +1,33 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+node_modules
+
+# Misc
+.DS_Store
+.pem
+
+# Config
+*.config.js
+*rc.js
+
+# Next.js
+.next
+out
+
+# Debug
+npm-debug.log*
+
+# Tocal Environment Files
+.env
+.env.local
+.env.development
+.env.development.local
+.env.production
+.env.production.local
+.env.test
+.env.test.local
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
