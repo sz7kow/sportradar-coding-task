@@ -1,0 +1,41 @@
+import {CardDescriptionEnum} from './card-description-enum';
+import {Commentary} from './commentary';
+import {CompetitorQualifierEnum} from './competitor-qualifier-enum';
+import {EventMethodEnum} from './event-method-enum';
+import {EventPlayer} from './event-player';
+import {EventTypeEnum} from './event-type-enum';
+import {PenaltyShootoutStatusEnum} from './penalty-shootout-status-enum';
+import {PeriodTypeEnum} from './period-type-enum';
+import {ShotOutcomeEnum} from './shot-outcome-enum';
+import {VarDescriptionEnum} from './var-description-enum';
+
+export interface GenericEvent {
+  away_score?: number;
+  break_name?: string;
+  card_description?: CardDescriptionEnum;
+  commentaries?: Commentary[];
+  competitor?: CompetitorQualifierEnum;
+  description?: VarDescriptionEnum;
+  home_score?: number;
+  id: number;
+  injury_time_announced?: number;
+  match_clock?: string;
+  match_time?: number;
+  method?: EventMethodEnum;
+  outcome?: ShotOutcomeEnum;
+  period?: number;
+  period_name?: string;
+  period_type?: PeriodTypeEnum;
+  players?: EventPlayer[];
+  shootout_away_score?: number;
+  shootout_home_score?: number;
+  status?: PenaltyShootoutStatusEnum;
+  stoppage_time?: number;
+  stoppage_time_clock?: string;
+  time: string;
+  type: EventTypeEnum;
+  updated?: boolean;
+  updated_time: string;
+  x?: number;
+  y?: number;
+}

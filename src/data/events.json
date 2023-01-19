@@ -1,5 +1,6 @@
 {
-    "events":[{
+  "events": [
+    {
       "sport_event_id": "sr:sport_event:27636100",
       "start_date": "2021-06-22T18:00:00+00:00",
       "sport_name": "Soccer",
@@ -2908,4 +2909,5 @@
       "probability_draw": 43.1,
       "probability_away_team_winner": 30.8
     }
-]}
+  ]
+}
