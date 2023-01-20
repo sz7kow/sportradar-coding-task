@@ -26,11 +26,15 @@ plugins:
   - 'react-hooks'
 rules:
   # ---------------------------- @typescript-eslint ---------------------------- #
+  '@typescript-eslint/lines-between-class-members': 0
   '@typescript-eslint/naming-convention': 0
+  '@typescript-eslint/no-explicit-any': 0
   '@typescript-eslint/no-use-before-define': 0
   '@typescript-eslint/no-unused-vars': 1
   # ---------------------------------- Eslint ---------------------------------- #
   arrow-body-style: [1, 'as-needed']
+  lines-between-class-members: 0
+  no-await-in-loop: 0
   no-promise-executor-return: 0
   no-unused-vars": 0
   sort-keys: 2
