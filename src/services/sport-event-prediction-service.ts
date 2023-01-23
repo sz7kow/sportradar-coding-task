@@ -9,7 +9,7 @@ export class SportEventPredictionService {
   }
 
   getCompatitorNames(): string[] {
-    return Array.from(SportEventPredictionService.#getUniqueCompetitorNames(this.#sportEventPredictions)).sort();
+    return SportEventPredictionService.#getUniqueCompetitorNames(this.#sportEventPredictions).sort();
   }
 
   getCompetitionCompatitorNames(compatitionId: string): string[] {
