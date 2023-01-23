@@ -12,6 +12,14 @@ export class SportEventPredictionService {
     return Array.from(SportEventPredictionService.#getUniqueCompetitorNames(this.#sportEventPredictions)).sort();
   }
 
+  getCompetitionCompatitorNames(compatitionId: string): string[] {
+    const sportEventPredictions = this.#sportEventPredictions.filter(
+      ({competition_id}) => competition_id === compatitionId
+    );
+
+    return SportEventPredictionService.#getUniqueCompetitorNames(sportEventPredictions);
+  }
+
   static #getUniqueCompetitorNames(sportEventPredictions: SportEventPrediction[]): string[] {
     const competitorNames = new Set<string>();
 
