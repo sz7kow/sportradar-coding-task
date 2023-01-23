@@ -1,5 +1,6 @@
 import data from '@/data/events.json';
 import {SportEventPrediction} from '@/types/models/sport-event-prediction';
+import {getUniqueCompetitorNames} from '@/utils/sport-event-prediction';
 
 export class SportEventPredictionService {
   #sportEventPredictions: SportEventPrediction[];
@@ -9,7 +10,7 @@ export class SportEventPredictionService {
   }
 
   getCompatitorNames(): string[] {
-    return SportEventPredictionService.#getUniqueCompetitorNames(this.#sportEventPredictions).sort();
+    return getUniqueCompetitorNames(this.#sportEventPredictions).sort();
   }
 
   getCompetitionCompatitorNames(compatitionId: string): string[] {
@@ -17,19 +18,7 @@ export class SportEventPredictionService {
       ({competition_id}) => competition_id === compatitionId
     );
 
-    return SportEventPredictionService.#getUniqueCompetitorNames(sportEventPredictions).sort();
-  }
-
-  static #getUniqueCompetitorNames(sportEventPredictions: SportEventPrediction[]): string[] {
-    const competitorNames = new Set<string>();
-
-    sportEventPredictions.forEach(({competitors}) => {
-      competitors.forEach(({name}) => {
-        competitorNames.add(name);
-      });
-    });
-
-    return Array.from(competitorNames);
+    return getUniqueCompetitorNames(sportEventPredictions).sort();
   }
 }
 
