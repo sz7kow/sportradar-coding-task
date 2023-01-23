@@ -17,7 +17,7 @@ export class SportEventPredictionService {
       ({competition_id}) => competition_id === compatitionId
     );
 
-    return SportEventPredictionService.#getUniqueCompetitorNames(sportEventPredictions);
+    return SportEventPredictionService.#getUniqueCompetitorNames(sportEventPredictions).sort();
   }
 
   static #getUniqueCompetitorNames(sportEventPredictions: SportEventPrediction[]): string[] {
