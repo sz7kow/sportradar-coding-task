@@ -8,6 +8,7 @@ export interface SportEventPredictionBasic {
   highest_probable_result_value: number;
   highest_probable_result: HighestProbableResultEnum;
   home_competitor: CompetitorBasic;
+  sport_event_id: string;
   start_date: string;
   venue_name: string;
 }

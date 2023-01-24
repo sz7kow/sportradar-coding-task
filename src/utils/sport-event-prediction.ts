@@ -33,6 +33,7 @@ export const mapToSportEventPredictionBasic = ({
   probability_draw,
   probability_home_team_winner,
   start_date,
+  sport_event_id,
   venue: {name},
 }: SportEventPrediction): SportEventPredictionBasic => {
   const homeCompetitor = competitors?.find(({qualifier}) => qualifier === CompetitorQualifierEnum.HOME) as Competitor;
@@ -61,6 +62,7 @@ export const mapToSportEventPredictionBasic = ({
     highest_probable_result: highestProbableResult,
     highest_probable_result_value: highestProbableResultValue,
     home_competitor: mapToCompetitorBasic(homeCompetitor),
+    sport_event_id,
     start_date,
     venue_name: name,
   };
