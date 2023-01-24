@@ -3,7 +3,7 @@ import {SportEventPrediction} from '@/types/models/sport-event-prediction';
 import {SportEventPredictionBasic} from '@/types/models/sport-event-prediction-basic';
 import {
   getUniqueCompetitorNames,
-  mapToSportEventPredicionBasic,
+  mapToSportEventPredictionBasic,
   sortDescendingByTheMostProbableResult,
 } from '@/utils/sport-event-prediction';
 
@@ -18,16 +18,16 @@ export class SportEventPredictionService {
     return this.#sportEventPredictions
       .sort(sortDescendingByTheMostProbableResult)
       .slice(0, count)
-      .map(mapToSportEventPredicionBasic);
+      .map(mapToSportEventPredictionBasic);
   }
 
   getCompetitorNames(): string[] {
     return getUniqueCompetitorNames(this.#sportEventPredictions).sort();
   }
 
-  getCompetitionCompetitorNames(compatitionId: string): string[] {
+  getCompetitionCompetitorNames(competitionId: string): string[] {
     const sportEventPredictions = this.#sportEventPredictions.filter(
-      ({competition_id}) => competition_id === compatitionId
+      ({competition_id}) => competition_id === competitionId
     );
 
     return getUniqueCompetitorNames(sportEventPredictions).sort();

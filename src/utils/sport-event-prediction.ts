@@ -4,7 +4,7 @@ import {SportEventPredictionBasic} from '@/types/models/sport-event-prediction-b
 import {Competitor} from '@/types/vendors/sport-radar/competitor';
 import {CompetitorQualifierEnum} from '@/types/vendors/sport-radar/competitor-qualifier-enum';
 
-import {mapToCompatitorBasic} from './competitor';
+import {mapToCompetitorBasic} from './competitor';
 
 export const getUniqueCompetitorNames = (sportEventPredictions: SportEventPrediction[]): string[] => {
   const competitorNames = new Set<string>();
@@ -25,7 +25,7 @@ export const sortDescendingByTheMostProbableResult = (a: SportEventPrediction, b
   return bValue - aValue;
 };
 
-export const mapToSportEventPredicionBasic = ({
+export const mapToSportEventPredictionBasic = ({
   competition_id,
   competition_name,
   competitors,
@@ -55,12 +55,12 @@ export const mapToSportEventPredicionBasic = ({
   }
 
   return {
-    away_competitor: mapToCompatitorBasic(awayCompetitor),
+    away_competitor: mapToCompetitorBasic(awayCompetitor),
     competition_id,
     competition_name,
     highest_probable_result: highestProbableResult,
     highest_probable_result_value: highestProbableResultValue,
-    home_competitor: mapToCompatitorBasic(homeCompetitor),
+    home_competitor: mapToCompetitorBasic(homeCompetitor),
     start_date,
     venue_name: name,
   };

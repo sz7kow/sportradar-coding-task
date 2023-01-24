@@ -37,7 +37,7 @@ export class SportRadarService {
 
         if (response.status !== 200) {
           const responseText = await response.text();
-          throw new Error(`Resuests failed: Status ${response.status} - ${responseText}`);
+          throw new Error(`Request failed: Status ${response.status} - ${responseText}`);
         }
 
         const body = await response.json();
