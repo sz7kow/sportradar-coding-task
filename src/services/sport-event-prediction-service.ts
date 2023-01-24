@@ -21,11 +21,11 @@ export class SportEventPredictionService {
       .map(mapToSportEventPredicionBasic);
   }
 
-  getCompatitorNames(): string[] {
+  getCompetitorNames(): string[] {
     return getUniqueCompetitorNames(this.#sportEventPredictions).sort();
   }
 
-  getCompetitionCompatitorNames(compatitionId: string): string[] {
+  getCompetitionCompetitorNames(compatitionId: string): string[] {
     const sportEventPredictions = this.#sportEventPredictions.filter(
       ({competition_id}) => competition_id === compatitionId
     );
