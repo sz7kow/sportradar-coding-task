@@ -7,9 +7,9 @@ interface Props {
 }
 
 export const SeasonSchedulesResultsTable: React.FC<Props> = ({schedules}) => (
-  <div className="overflow-x-auto rounded-lg shadow-md">
-    <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400 [&_td]:py-3 [&_td]:px-6 [&_th]:py-3 [&_th]:px-6">
-      <thead className="bg-gray-200 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-200">
+  <div className="custom-table">
+    <table>
+      <thead>
         <tr>
           <th className="text-center" scope="col">
             Date
@@ -23,6 +23,7 @@ export const SeasonSchedulesResultsTable: React.FC<Props> = ({schedules}) => (
           <th className="text-center" scope="col">
             Final Score
           </th>
+          <td />
         </tr>
       </thead>
       <tbody>
