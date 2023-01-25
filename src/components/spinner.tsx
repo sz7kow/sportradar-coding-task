@@ -3,7 +3,7 @@ import clsx from 'clsx';
 type DivProps = JSX.IntrinsicElements['div'];
 
 export const Spinner: React.FC<DivProps> = ({className, ...props}) => (
-  <div {...props} className={clsx(className, 'block w-fit')} role="status">
+  <div {...props} className={clsx(className, 'mx-auto block w-fit')} role="status">
     <svg
       aria-hidden="true"
       className="mr-2 inline h-8 w-8 animate-spin fill-blue-600 text-gray-200 dark:text-gray-600"
