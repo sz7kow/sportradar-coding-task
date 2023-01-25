@@ -11,6 +11,7 @@ const Application: React.FC<AppProps> = ({Component, pageProps}) => (
   <Fragment>
     <Head>
       <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      <link href="/avatar-sz7kow.png" rel="icon" />
     </Head>
     <ColorSchemeProvider>
       <PageLayout>
