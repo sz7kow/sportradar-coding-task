@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const PageLayout: React.FC<Props> = ({children}) => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const router = useRouter();
 
