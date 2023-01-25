@@ -12,7 +12,7 @@ const Document: React.FC = () => (
       <Script
         dangerouslySetInnerHTML={{__html: injectColorSchemeScript}}
         id="load-theme-preference"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
     </body>
   </Html>
