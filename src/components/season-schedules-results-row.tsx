@@ -7,7 +7,7 @@ import {slugifyId} from '@/utils/sport-radar';
 import IconChevronRight from '@/svgs/icon-chevron-right.svg';
 
 import {DateSlug} from './date-slug';
-import {SeasonSchedulesCompetitorCell} from './season-schedules-results-compatitor-cell';
+import {SeasonSchedulesCompetitorCell} from './season-schedules-results-competitor-cell';
 
 interface Props {
   schedule: SeasonSchedule;
