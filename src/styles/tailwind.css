@@ -6,4 +6,11 @@ body {
 }
 
 @tailwind components;
+
 @tailwind utilities;
+
+.custom-ring {
+  @apply rounded-lg;
+  @apply hover:ring-gray-200;
+  @apply focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700;
+}
