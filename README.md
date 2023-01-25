@@ -1,6 +1,6 @@
 # Sportradar Coding Task
 
-This is a solution to sport radar coding task.
+This is a solution to the sport radar coding task.
 
 ## Table of contents
 
@@ -41,7 +41,7 @@ Pages:
 
 - /matches/[sport-event-id-slug] - page with details about a given sport event.
 - /results/[season-id-slug] - page with schedule for a given seasons.
-- /probable-results - page with results of backend part of the challenge.
+- /probable-results - page with results of the backend part of the challenge.
 
 ### Backend
 
