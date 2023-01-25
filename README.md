@@ -1,38 +1,106 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sportradar Coding Task
 
-## Getting Started
+This is a solution to sport radar coding task.
 
-First, run the development server:
+## Table of contents
+
+- [Sportradar Coding Task](#sportradar-coding-task)
+  - [Table of contents](#table-of-contents)
+  - [Notes](#notes)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+  - [Solution](#solution)
+    - [Frontend](#frontend-1)
+    - [Backend](#backend-1)
+  - [Technologies](#technologies)
+    - [Built with](#built-with)
+    - [Installation](#installation)
+      - [Setting up](#setting-up)
+      - [Development](#development)
+      - [Production](#production)
+      - [Additional scripts](#additional-scripts)
+  - [Links](#links)
+
+## Notes
+
+### Frontend
+
+- Due to the api calls rate limit the app might lag / crash during development. Restarting and/or removing .next directory should help temporarily. Those problem should not occur while running the production build.
+- Since Next.js crashed while using ids containing special characters as url parameters, the web part of the solution uses slugs instead. The slugs are created by replacing id's ':' with '-'. Example: sr:season:67233 -> sr-season-67233.
+
+### Backend
+
+- I am not sure what do you mean by 'Create data structure to store unique team names'. I think using native Set data structure is the most suitable approach.
+- 'Prepare your method to handle very strange values given ( i.e 1000000 )' - since javascript's native .sort() method is already highly optimized, I did not see a point in creating a custom sorting function.
+
+## Solution
+
+### Frontend
+
+Pages:
+
+- /matches/[sport-event-id-slug] - page with details about a given sport event.
+- /results/[season-id-slug] - page with schedule for a given seasons.
+- /probable-results - page with results of backend part of the challenge.
+
+### Backend
+
+Endpoints:
+
+- /api/sport-event-predictions?count=number - returns an array of the most probable results. The count parameter is optional. The default value is 10.
+- /api/sport-event-predictions/[competition-id]/competitor-names - returns an array of unique competitors for a given competition.
+- /api/sport-event-predictions/competitor-names - returns an array of unique competitors.
+
+## Technologies
+
+### Built with
+
+- react@18.2.0
+- next@13.1.2
+- typescript@4.9.4
+- tailwindcss@3.2.4
+
+### Installation
+
+#### Setting up
+
+- Create .env file in the project's root directory. The app requires a valid sportradar's api key with permissions to access soccer module:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+SPORT_RADAR_API_KEY=PASTE_YOUR_KEY_HERE
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Development
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run prepare
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#### Production
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm run install
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### Additional scripts
 
-## Learn More
+For code formatting use:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run format
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For code linting use:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run lint
+```
 
-## Deploy on Vercel
+## Links
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Repository URL: [Link](https://github.com/sz7kow/sportradar-coding-task)
+- Live Site URL: [Link](https://sport-radar-coding-task.sz7kow.com/)
