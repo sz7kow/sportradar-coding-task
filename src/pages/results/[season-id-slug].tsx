@@ -13,6 +13,7 @@ import {PageTitle} from '@/components/page-title';
 import {FormElement} from '@/components/form-element';
 import {slugifyId, unslugifyId} from '@/utils/sport-radar';
 import {FormSelect} from '@/components/form-select';
+import {Container} from '@/components/container';
 
 const COMPETITION_ID = 'sr:competition:202';
 
@@ -25,12 +26,7 @@ const ResultPage: React.FC<StaticProps> = ({seasons, seasonSchedule}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const router = useRouter();
-
-  if (!(typeof router.query?.['season-id-slug'] === 'string')) {
-    throw new Error(`Invalid 'season-id-slug' parameter: ${router.query?.['season-id-slug']}`);
-  }
-
-  const seasonId = unslugifyId(router.query?.['season-id-slug']);
+  const seasonId = unslugifyId(router.query?.['season-id-slug'] as string);
 
   const selectOptions = seasons.map(({id, name}) => ({
     label: name,
@@ -51,7 +47,7 @@ const ResultPage: React.FC<StaticProps> = ({seasons, seasonSchedule}) => {
         <link href="/avatar-sz7kow.png" rel="icon" />
       </Head>
       <main>
-        <div className="container my-12 mx-auto p-4 xl:max-w-screen-lg">
+        <Container className="my-12">
           <PageTitle>Results</PageTitle>
           <FormElement htmlFor="seasons">
             <FormSelect defaultValue={seasonId} id="seasons" onChange={handleChange} options={selectOptions} />
@@ -59,7 +55,7 @@ const ResultPage: React.FC<StaticProps> = ({seasons, seasonSchedule}) => {
           <div className="pt-6">
             {isLoading ? <Spinner className="mx-auto" /> : <SeasonSchedulesResultsTable schedules={seasonSchedule} />}
           </div>
-        </div>
+        </Container>
       </main>
     </Fragment>
   );
