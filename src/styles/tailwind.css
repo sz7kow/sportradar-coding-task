@@ -9,6 +9,27 @@ body {
 
 @tailwind utilities;
 
+.custom-table {
+  @apply w-full overflow-x-auto rounded-lg shadow-md;
+}
+
+.custom-table > table {
+  @apply w-full text-left text-sm text-gray-500 dark:text-gray-400;
+}
+
+.custom-table > table > thead {
+  @apply bg-gray-200 text-xs font-bold uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-200;
+}
+
+.custom-table > table > tbody > tr {
+  @apply border-b odd:bg-white even:bg-gray-50 dark:border-gray-700 odd:dark:bg-gray-800 even:dark:bg-gray-900;
+}
+
+.custom-table td,
+.custom-table th {
+  @apply py-3 px-6;
+}
+
 .custom-ring {
   @apply rounded-lg;
   @apply hover:ring-gray-200;
