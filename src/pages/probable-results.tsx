@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import Head from 'next/head';
+import React, {Fragment, useEffect, useState} from 'react';
 
 import {SportEventPredictionBasic} from '@/types/models/sport-event-prediction-basic';
 import {Container} from '@/components/container';
@@ -22,13 +23,19 @@ const ProbableResults: React.FC = () => {
   }, []);
 
   return (
-    <main>
-      <Container className="my-8 flex flex-col gap-y-6 lg:my-10 xl:my-12">
-        <PageTitle>Probable Results</PageTitle>
-        {errorMessage}
-        {isLoading ? <Spinner /> : <SportEventPredictionList sportEventPredictions={sportEventPredictions} />}
-      </Container>
-    </main>
+    <Fragment>
+      <Head>
+        <title>Probable Results | Sport Radar Coding Task</title>
+        <meta content="List of the most probable match results." name="description" />
+      </Head>
+      <main>
+        <Container className="my-8 flex flex-col gap-y-6 lg:my-10 xl:my-12">
+          <PageTitle>Probable Results</PageTitle>
+          {errorMessage}
+          {isLoading ? <Spinner /> : <SportEventPredictionList sportEventPredictions={sportEventPredictions} />}
+        </Container>
+      </main>
+    </Fragment>
   );
 };
 
