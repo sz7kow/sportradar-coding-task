@@ -22,6 +22,20 @@ const nextConfig = {
     });
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/results',
+        permanent: true,
+      },
+      {
+        source: '/404',
+        destination: '/results',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
